@@ -1,0 +1,51 @@
+--create database Experiment; --To create a database and repalce "Experiment" to your database name.
+--show databases; --To see your database what you created.
+--use Experiment; --Repalce "Experiment" to your database name.
+
+create Table Emp(Ename char(10), Ecity char(10), Ephno int(10), ESalary int(10), EAdd varchar(10), Department varchar(15), Enum int(10));
+insert into Emp values('Nitin', 'Delhi', '1234567890', '50000', 'Delhi-12', 'AI', '10000'), ('Sam', 'Faridabad', '1234567890', '40000', 'Up', 'IT2', '12000'), ('Ravi', 'Delhi', '1234567890', '60000', 'Delhi', 'IT3', '20000'), ('Vishal', 'Noida', '1234567890', '50000', 'Up', 'CS', '18000'), ('Rishabh', 'Himanchal', '1234567890', '45000', 'Delhi', 'ECE', '13700'), ('Manvendra', 'Delhi', '1234567890', '60000', 'Delhi', 'CS', '13400');
+SELECT * FROM Emp;
+
+create Table Company(Cname char(10), Ccity char(10), Enum int(10));
+insert into Company values('TCS', 'Pune', '10000'), ('Wipro', 'Noida', '12000'), ('INfosys', 'Gurugram', '8000'), ('Dxc', 'Chennai', '5000'), ('HCL', 'Gurugram', '2000'), ('Videcon', 'Delhi', '3000');
+SELECT * FROM Company;
+
+SELECT * FROM Emp where Ecity='Delhi'; --Practical-3 Question 1.
+update Emp set ESalary = ESalary + '5000'; --Practical-3 Question 2.
+SELECT * FROM Emp;
+SELECT Cname, Ccity, enum FROM Company WHERE enum >= 10000; --Practical-3 Question 3.
+update Company set Ccity = 'Gurgaon' where Cname = 'TCS'; --Practical-3 Question 4.
+SELECT * FROM Company;
+
+alter table Emp add Designation varchar(15); --Practical-4 Question 1.
+alter table Emp alter column ESalary float(10); --Practical-4 Question 2.
+alter table Emp drop column Department; --Practical-4 Question 3.
+SELECT * FROM Emp;
+delete from Company where enum<'8000'; --Practical-4 Question 4.
+SELECT * FROM Company;
+
+Select Ename from Emp where Ecity='Gurgaon' and Salary between   20000 and 30000; --Practical-5 Question 1.
+Select * from Emp where Ename like 'R%'; --Practical-5 Question 2.
+Select Cname from Company where Ccity='Delhi' and enum between 4000 and 6000; --Practical-5 Question 3.
+Select *from Company where Cname like '%S'; --Practical-5 Question 4.
+
+Select sum(Esalary), avg(Esalary) from Emp where department= 'CS'; --Practical-6 Question 1.
+Select count(Ename) from Emp where Ecity= 'Delhi'; --Practical-6 Question 2.
+Select max(Esalary), min(Esalary) from Emp where Department= 'CS'; --Practical-6 Question 3.
+
+SELECT * FROM Emp order by Ename desc; --Practical-7 Question 1.
+select Enum, count(*)<12000 from Emp group by enum; --Practical-7 Question 2.
+SELECT * FROM Emp where Esalary > all(select avg(50000) from Emp group by Ename); --Practical-7 Question 3.
+
+alter table Emp add primary key(enum); --Practical-8 Question 1.
+alter table Company add foreign key(enum) references Emp(enum); --Practical-8 Question 2.
+SET FOREIGN_KEY_CHECKS=1; --to diasablng(0) foreign key security checks, for enabling(1) it.
+Alter table Company Add constraint name Unique(Cname); --Practical-8 Question 3.
+Alter table Company Alter Ccity set default 'Delhi'; --Practical-8 Question 4.
+
+ALTER TABLE Emp RENAME TO Emp1; --Practical-9 Question 1.
+ALTER TABLE Emp RENAME COLUMN Ename TO Empname; --Practical-9 Question 2.
+
+select *from Emp1 cross join Company; --Practical-10 Question 1.
+select *from Emp1, Company where Company.Cname= 'TCS'; --Practical-10 Question 2.
+

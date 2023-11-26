@@ -1,0 +1,72 @@
+LEX and YACC are tools used in compiler design to create lexical analyzers and parsers, respectively. Lex helps generate lexical analyzers (scanners), while YACC generates parsers based on a formal grammar. Together, they aid in building the front end of a compiler.
+
+Here's a simple example of how you might use LEX and YACC:
+
+1. LEX (or Flex): Define the lexical rules in a file with a `.l` extension. This file contains regular expressions and corresponding actions.
+
+   ```lex
+   %{
+   #include "y.tab.h"
+   %}
+   
+   %%
+   [0-9]+    { yylval = atoi(yytext); return NUM; }
+   "+"       { return ADD; }
+   "*"       { return MUL; }
+   "-"       { return SUB; }
+   "/"       { return DIV; }
+   "\n"      { return EOL; }
+   [ \t]     { /* ignore whitespace */ }
+   .         { yyerror("Invalid character"); }
+   %%
+   ```
+
+   Run Lex to generate the C code:
+
+   ```bash
+   lex example.l
+   gcc lex.yy.c -o lexer -ll
+   ```
+
+2. YACC (or Bison): Define the grammar rules in a file with a `.y` extension. This file contains productions and corresponding actions.
+
+   ```yacc
+   %{
+   #include <stdio.h>
+   %}
+   
+   %token NUM ADD MUL SUB DIV EOL
+   
+   %%
+   
+   line: expr EOL   { printf("Result: %d\n", $1); }
+   
+   expr: expr ADD term  { $$ = $1 + $3; }
+       | expr SUB term  { $$ = $1 - $3; }
+       | term           { $$ = $1; }
+   
+   term: term MUL factor  { $$ = $1 * $3; }
+       | term DIV factor  { $$ = $1 / $3; }
+       | factor           { $$ = $1; }
+   
+   factor: NUM
+         | '(' expr ')'   { $$ = $2; }
+   
+   %%
+   ```
+
+   Run YACC to generate the C code:
+
+   ```bash
+   yacc -d example.y
+   gcc y.tab.c lex.yy.c -o calculator -ll
+   ```
+
+3. Testing: Now, you can use the generated lexer and parser to analyze and parse input expressions:
+
+   ```bash
+   ./lexer
+   ./calculator
+   ```
+
+This is a basic example, and real-world compilers involve more complexity. Understanding the principles behind lexing and parsing is crucial for effective compiler design.
