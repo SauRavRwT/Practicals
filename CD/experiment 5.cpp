@@ -1,3 +1,5 @@
+// Write a program to remove left Recursion from a Grammar.
+
 #include<iostream>
 #include<string>
 

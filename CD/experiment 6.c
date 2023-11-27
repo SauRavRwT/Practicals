@@ -1,3 +1,5 @@
+// Write a program to perform Left Factoring on a Grammar.
+
 #include<stdio.h>
 #include<string.h>
 

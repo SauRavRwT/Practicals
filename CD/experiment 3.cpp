@@ -1,3 +1,5 @@
+// Write a program to check whether a string belong to the grammar or not.
+
 #include <iostream>
 #include <string>
 #include <cctype>

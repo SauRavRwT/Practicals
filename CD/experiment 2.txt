@@ -1,3 +1,5 @@
+# Practice of LEX/YACC of compiler writing.
+
 LEX and YACC are tools used in compiler design to create lexical analyzers and parsers, respectively. Lex helps generate lexical analyzers (scanners), while YACC generates parsers based on a formal grammar. Together, they aid in building the front end of a compiler.
 
 Here's a simple example of how you might use LEX and YACC:
