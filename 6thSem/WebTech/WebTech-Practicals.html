@@ -1,0 +1,741 @@
+<!-- Aim: write a program to print the ordered and unordered list.  -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List Example</title>
+</head>
+
+<body>
+    <h2>Ordered List Example:</h2>
+    <ol>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+        <li>Mango</li>
+    </ol>
+    <h2>Unordered List Example:</h2>
+    <ul>
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+        <li>Yellow</li>
+    </ul>
+</body>
+
+</html>
+
+<!-- Aim: Write a program to print the dictionary. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dictionary Example</title>
+    <script>
+        var dictionary = { "apple": "A fruit that grows on trees.", "banana": "A long curved fruit that grows in clusters.", "orange": "A round fruit with a shiny orange skin." };
+
+        function displayDictionary() { var output = "<h2>Dictionary</h2><ul>"; for (var key in dictionary) { output += "<li><strong>" + key + ":</strong> " + dictionary[key] + "</li>"; } output += "</ul>"; document.getElementById("dictionary").innerHTML = output; } 
+    </script>
+</head>
+
+<body onload="displayDictionary()">
+    <div id="dictionary">
+    </div>
+</body>
+
+</html>
+
+<!-- Aim: Write a program to print the table. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Table Example</title>
+</head>
+
+<body>
+    <h2>Student Information</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Branch</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Saurav Rawat</td>
+            <td>22</td>
+            <td>IT-3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Ravi Kumar Thakur</td>
+            <td>22</td>
+            <td>IT-3</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Ravita</td>
+            <td>21</td>
+            <td>IT-3</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<!-- Aim: write a program to make a linked list(hyperlinks). -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Linked List Example</title>
+</head>
+
+<body>
+    <h2>Linked List of Hyperlinks</h2>
+    <p>This is a linked list of hyperlinks:</p>
+    <ul>
+        <li><a href="#link1">Link 1</a></li>
+        <li><a href="#link2">Link 2</a></li>
+        <li><a href="#link3">Link 3</a></li>
+        <li><a href="#link4">Link 4</a></li>
+        <li><a href="#link5">Link 5</a></li>
+    </ul>
+    <p id="link1">Link 1 content</p>
+    <p><a href="#">Back to Top</a></p>
+    <p id="link2">Link 2 content</p>
+    <p><a href="#">Back to Top</a></p>
+    <p id="link3">Link 3 content</p>
+    <p><a href="#">Back to Top</a></p>
+    <p id="link4">Link 4 content</p>
+    <p><a href="#">Back to Top</a></p>
+    <p id="link5">Link 5 content</p>
+    <p><a href="#">Back to Top</a></p>
+</body>
+
+</html>
+
+<!-- Aim: Design a static web page using internal CSS. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Static Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    <nav> <a href="#">Home</a> <a href="#">About</a> <a href="#">Services</a> <a href="#">Contact</a> </nav>
+    <section>
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, elit vel fringilla vestibulum, massa
+            tortor tristique sapien, at luctus mi magna nec justo. Nulla facilisi. Proin id odio nec ante blandit
+            viverra.</p>
+    </section>
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Web Design</li>
+            <li>Graphic Design</li>
+            <li>SEO</li>
+            <li>Content Writing</li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
+
+<!-- Aim: Design a CD catalog using XML. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+    <CD>
+        <Name>Saurav Rawat</Name>
+        <Rollno.>0057680772</Rollno.>
+        <Branch>IT-3</Branch>
+    </CD>
+    <CD>
+        <Name>Ravi Kumar Thakur</Name>
+        <Rollno.>00176807722</Rollno.>
+        <Branch>IT-3</Branch>
+
+    </CD>
+    <CD>
+        <Name>Ravita</Name>
+        <Rollno.>01776807722</Rollno.>
+        <Branch>IT-3</Branch>
+    </CD>
+</CATALOG>
+
+<!-- Aim: Design a form using basic html tags. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+</head>
+
+<body>
+    <h2>Contact Us</h2>
+    <form action="#" method="post"> <label for="name">Name:</label><br> <input type="text" id="name" name="name"
+            required><br><br> <label for="email">Email:</label><br> <input type="email" id="email" name="email"
+            required><br><br> <label for="message">Message:</label><br> <textarea id="message" name="message" rows="4"
+            cols="50" required></textarea><br><br> <input type="submit" value="Submit"> </form>
+</body>
+
+</html>
+
+<!-- Aim: Design a simple interest calculator using JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <style>
+        input[type="number"] {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple Interest Calculator</h2>
+    <form> <label for="principal">Principal Amount:</label> <input type="number" id="principal" required><br><br> <label
+            for="rate">Interest Rate (in %):</label> <input type="number" id="rate" required><br><br> <label
+            for="time">Time Period (in years):</label> <input type="number" id="time" required><br><br> <input
+            type="button" value="Calculate" onclick="calculateInterest()"> </form>
+    <p id="result"></p>
+    <script> function calculateInterest() { var principal = parseFloat(document.getElementById('principal').value); var rate = parseFloat(document.getElementById('rate').value); var time = parseFloat(document.getElementById('time').value); var interest = (principal * rate * time) / 100; var totalAmount = principal + interest; document.getElementById('result').innerHTML = "Interest: $" + interest.toFixed(2) + "<br>Total Amount: $" + totalAmount.toFixed(2); } </script>
+</body>
+
+</html>
+
+<!-- Aim: Design food menu using XML. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<breakfast_menu>
+    <food>
+        <name>Belgian Waffles</name>
+        <price>$5.95</price>
+        <desc>Two of our famous Belgian Waffles with plenty of real maple syrup</desc>
+        <calories>650</calories>
+    </food>
+    <food>
+        <name>Strawberry Belgian Waffles</name>
+        <price>$7.95</price>
+        <desc>Light Belgian waffles covered with strawberries and whipped cream</desc>
+        <calories>900</calories>
+    </food>
+    <food>
+        <name>Berry-Berry Belgian Waffles</name>
+        <price>$8.95</price>
+        <desc>Light Belgian waffles covered with an assortment of fresh berries and whipped cream</desc>
+        <calories>900</calories>
+    </food>
+</breakfast_menu>
+
+
+<!-- Aim: Design a simple form and validate textbox for email and alphabetic characters using JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Simple Form Validation</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <span id="emailError" class="error"></span><br>
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <span id="nameError" class="error"></span><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            // Retrieving input values
+            var email = document.getElementById("email").value.trim();
+            var name = document.getElementById("name").value.trim();
+
+            // Validation patterns
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var namePattern = /^[a-zA-Z\s]+$/;
+
+            // Error flag
+            var isValid = true;
+
+            // Clearing previous error messages
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("nameError").innerHTML = "";
+
+            // Email validation
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Email is required";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerHTML = "Invalid email format";
+                isValid = false;
+            }
+
+            // Name validation
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Name is required";
+                isValid = false;
+            } else if (!namePattern.test(name)) {
+                document.getElementById("nameError").innerHTML = "Name must contain only alphabetic characters";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- Aim: Design  a simple form and validate for password and phone number using js. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple Form Validation</h2>
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <span id="passwordError" class="error"></span><br>
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <span id="phoneError" class="error"></span><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function validateForm() {
+            // Retrieving input values
+            var password = document.getElementById("password").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            // Validation patterns
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var phonePattern = /^\d{10}$/;
+            // Error flag
+            var isValid = true;
+            // Clearing previous error messages
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            // Password validation
+            if (password === "") {
+                document.getElementById("passwordError").innerHTML = "Password is required";
+                isValid = false;
+            } else if (!passwordPattern.test(password)) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter";
+                isValid = false;
+            }
+            // Phone number validation
+            if (phone === "") {
+                document.getElementById("phoneError").innerHTML = "Phone number is required";
+                isValid = false;
+            } else if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").innerHTML = "Phone number must be 10 digits";
+                isValid = false;
+            }
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- Aim: Designer dynamic menu using dhtml. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Menu</title>
+    <style>
+        /* Style for the menu */
+        #menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #menu li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #menu li a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #menu li a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="menu">
+        <!-- The menu items will be dynamically added here -->
+    </ul>
+
+    <script>
+        // Array of menu items
+        var menuItems = [
+            { label: "Home", url: "/" },
+            { label: "About", url: "/about" },
+            { label: "Services", url: "/services" },
+            { label: "Contact", url: "/contact" }
+        ];
+
+        // Function to create the menu
+        function createMenu() {
+            var menu = document.getElementById('menu');
+            menuItems.forEach(function (item) {
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.textContent = item.label;
+                a.setAttribute('href', item.url);
+                li.appendChild(a);
+                menu.appendChild(li);
+            });
+        }
+
+        // Call the function to create the menu when the page loads
+        window.onload = function () {
+            createMenu();
+        };
+    </script>
+
+</body>
+
+</html>
+
+<!-- Aim: Design a simple table with dynamic content using dhtml. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <style>
+        /* Style for the table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Array of data for the table
+        var tableData = [
+            { name: "John", age: 30, country: "USA" },
+            { name: "Alice", age: 25, country: "UK" },
+            { name: "Bob", age: 35, country: "Canada" },
+            { name: "Emily", age: 28, country: "Australia" }
+        ];
+
+        // Function to create the table
+        function createTable() {
+            var table = document.getElementById('myTable');
+            var tbody = table.getElementsByTagName('tbody')[0];
+
+            tableData.forEach(function (rowData) {
+                var row = document.createElement('tr');
+                Object.values(rowData).forEach(function (value) {
+                    var cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                tbody.appendChild(row);
+            });
+        }
+
+        // Call the function to create the table when the page loads
+        window.onload = function () {
+            createTable();
+        };
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- Aim: Design a web page using CSS. Installation of Java server. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to My Web Page</h1>
+    </header>
+
+    <div class="container">
+        <p>This is a simple web page example styled with CSS.</p>
+        <p>You can add more content here...</p>
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- Aim: Demonstrate dialoge boxes in JavaScript. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dialog Boxes Example</title>
+</head>
+
+<body>
+
+    <script>
+        // Alert dialog
+        alert("Welcome to the website!");
+
+        // Confirm dialog
+        var result = confirm("Do you want to proceed?");
+        if (result) {
+            alert("You clicked OK!");
+        } else {
+            alert("You clicked Cancel!");
+        }
+
+        // Prompt dialog
+        var name = prompt("Please enter your name:", "Your name here");
+        if (name != null && name != "") {
+            alert("Hello, " + name + "!");
+        } else {
+            alert("Hello, anonymous!");
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- Aim: Demonstrate mouse in and mouse out functions. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse In and Mouse Out Functions</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box" onmouseover="mouseIn()" onmouseout="mouseOut()">Hover over me</div>
+
+    <script>
+        function mouseIn() {
+            document.getElementById("box").style.backgroundColor = "#ff7f0e";
+            document.getElementById("box").innerHTML = "Mouse In";
+        }
+
+        function mouseOut() {
+            document.getElementById("box").style.backgroundColor = "#ccc";
+            document.getElementById("box").innerHTML = "Mouse Out";
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- Aim: Write a program to display IP using commands. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display IP Address</title>
+</head>
+
+<body>
+    <h1>Your IP Address</h1>
+    <p id="ip-address">Loading...</p>
+
+    <script>
+        // Make a request to the ipify API to get the IP address
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // Update the paragraph element with the IP address
+                document.getElementById('ip-address').innerText = data.ip;
+            })
+            .catch(error => {
+                // Display an error message if the request fails
+                console.error('Error fetching IP address:', error);
+                document.getElementById('ip-address').innerText = 'Failed to fetch IP address';
+            });
+    </script>
+</body>
+
+</html>

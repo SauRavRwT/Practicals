@@ -46,8 +46,6 @@ public class socketserver {
                 Scanner scanner = new Scanner(System.in);
                 while ((inputLine = in.readLine()) != null) {
                     System.out.println("Client: " + inputLine);
-                    
-                    // Read message from the server console and send it to the client
                     System.out.print("Server: ");
                     String serverMessage = scanner.nextLine();
                     out.println(serverMessage);

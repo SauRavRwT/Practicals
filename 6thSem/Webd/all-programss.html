@@ -1,0 +1,985 @@
+<!-- Experiment 3 Aim: To create a time table using html. -->
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Timetable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Weekly Timetable</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>10:00 AM - 11:00 AM</th>
+            <th>11:00 AM - 12:00 PM</th>
+            <th>12:00 PM - 12:30 PM</th>
+            <th>1:30 PM - 2:30 PM</th>
+            <th>2:30 PM - 3:30 PM</th>
+            <th>3:30 PM - 4:30 PM</th>
+            <th>4:30 PM - 5:30 PM</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>E-com_th(Mr. Kalyan Singh)</td>
+            <td>------</td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>E-com_th(Mr. Kalyan Singh)</td>
+            <td>------</td>
+        </tr>
+        <tr>
+            <td>wednessday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>E-com_th(Mr. Kalyan Singh)</td>
+            <td>------</td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>E-com_th(Mr. Kalyan Singh)</td>
+            <td>------</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>Adv java_lab(Dr. Amandeep Kaur)</td>
+            <td>E-com_th(Mr. Kalyan Singh)</td>
+            <td>------</td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td>------</td>
+            <td>------</td>
+            <td>Break</td>
+            <td>------</td>
+            <td>------</td>
+            <td>------</td>
+            <td>------</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- Aim: To create a nested list (ordered, unordered and definition list) using html. -->
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Lists</title>
+</head>
+<body>
+    <h2>Nested Lists</h2>
+    <!-- Ordered List -->
+    <ol>
+        <li>First level item 1</li>
+        <li>First level item 2
+            <ol>
+                <li>Second level item 1</li>
+                <li>Second level item 2
+                    <ol>
+                        <li>Third level item 1</li>
+                        <li>Third level item 2</li>
+                    </ol>
+                </li>
+                <li>Second level item 3</li>
+            </ol>
+        </li>
+        <li>First level item 3</li>
+    </ol>
+    <!-- Unordered List -->
+    <ul>
+        <li>Apple</li>
+        <li>Banana
+            <ul>
+                <li>Yellow banana</li>
+                <li>Green banana</li>
+            </ul>
+        </li>
+        <li>Orange</li>
+    </ul>
+    <!-- Definition List -->
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language - used for structuring content on web pages.</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets - used for styling HTML elements.</dd>
+        <dt>JavaScript</dt>
+        <dd>A programming language that adds interactivity to web pages.</dd>
+    </dl>
+</body>
+</html>
+
+<!-- Experiment 4 Aim: To create a registration form using html.  -->
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="DOB">DOB:</label>
+        <input type="Date" id="DOB" name="" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="file">file:</label>
+        <input type="file" id="file" name="file" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+
+<!-- Aim: To create a frame (using I tag) and hyperlink using html. -->
+Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame and Hyperlink </title>
+</head>
+<body>
+    <h2>Embedded Frame and Hyperlink </h2>
+    <!-- Frame -->
+    <iframe src="sauravrwt.github.io" width="600" height="400" title="portfolio"></iframe>
+    <!-- Hyperlink -->
+    <p>Visit <a href="https://github.com/SauravRwT/" target="_blank"> Website</a></p>
+</body>
+</html>
+
+<!-- Experiment - 5 Aim: Create a static website using HTML, CSS and JavaScript. -->
+Code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1, p {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    <div class="container">
+        <p>This is a simple static website created using HTML, CSS, and JavaScript.</p>
+        <button class="button" onclick="alert('Hello!')">Click Me</button>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Static Website</p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript Code (optional)
+        // You can add more JavaScript functionality here
+    </script>
+</body>
+</html>
+
+<!-- Aim: Install and set up nodejs and expressjs. -->
+Theory:
+
+1. Install Node.js: First, you need to install Node.js. You can download the installer from the official website, or you can use a package manager like apt on Ubuntu or brew on macOS.
+2. Verify Installation: After installing Node.js, open a terminal or command prompt and run the following commands to verify that Node.js and npm (Node Package Manager) are installed correctly:
+
+```bash
+node -v npm -v
+```
+These commands should print out the versions of Node.js and npm, respectively.
+3. Create a New Express.js Project: Once Node.js is installed, you can create a new directory for your Express.js project and navigate into it in your terminal or command prompt. Then, initialize a new Node.js project using npm:
+
+```bash
+mkdir my-express-app && cd my-express-app && npm init -y 
+```
+This will create a new package.json file in your project directory, which is used to manage dependencies and configurations for your Node.js application.
+54 Install Express.js: With your project initialized, you can now install Express.js as a dependency using npm:
+
+```bash
+npm install express 
+```
+This will install Express.js and add it as a dependency in your package.json file.
+5. Create an Express.js Application: After installing Express.js, you can create your Express application. Create a new file named app.js (or any other name you prefer) in your project directory and add the following code to set up a basic Express.js server:
+
+```javascript
+const express = require('express'); 
+const app = express(); 
+const port = 3000; app.get('/', (req, res) => { res.send('Hello World!'); });
+ app.listen(port, () => { 
+console.log(`Server listening at http://localhost:${port}`); 
+}); 
+```
+This code creates a simple Express.js application that listens for HTTP requests on port 3000 and responds with "Hello World!" when you visit the root URL (http://localhost:3000) in your web browser.
+Run Your Express.js Application: To run your Express.js application, execute the following command in your terminal or command prompt:
+
+```bash
+node app.js 
+```
+This will start your Express.js server, and you should see the message "Server listening at http://localhost:3000" in the console. You can then open your web browser and navigate to http://localhost:3000 to see your Express.js application in action.
+
+
+
+
+
+
+
+
+
+<!-- Experiment – 6 Aim: Set up React app and print "Hello World!” -->
+Theory:
+
+1. Install Node.js: If you haven't already installed Node.js, follow the steps mentioned earlier to install it.
+2. Install create-react-app: Open your terminal or command prompt and run the following command to install create-react-app globally:
+
+```bash
+npm install -g create-react-app 
+````
+3. Create a New React App: Once create-react-app is installed, you can create a new React app by running the following command:
+
+```bash
+npx create-react-app my-react-app 
+```
+Replace my-react-app with the name you want for your React app. This command will create a new directory named my-react-app and set up a new React project inside it.
+4. Navigate to Your React App Directory: Change into the directory of your newly created React app:
+
+```bash
+cd my-react-app 
+```
+5. Start the Development Server: Run the following command to start the development server for your React app:
+
+```bash
+npm start 
+```
+This will start the development server and open your React app in your default web browser. You should see the default React logo and text indicating that your app is running.
+6. Edit src/App.js: Open the src/App.js file in your code editor and replace its contents with the following code to print "Hello World!":
+
+```javascript
+import React from 'react'; 
+function App() { 
+return ( 
+<div className="App"> 
+<h1>Hello World!</h1> 
+</div> 
+);
+ } 
+export default App; 
+```
+This code defines a simple React component named App that renders an <h1> element containing the text "Hello World!".
+7. View Your Changes: After saving the App.js file, your React app will automatically reload in the browser, and you should see the "Hello World!" text displayed on the page.
+
+
+<!-- Experiment – 7 Aim: To make list components and table components. -->
+
+1. List Component (ListComponent.js):
+```jsx
+import React from 'react';
+function ListComponent({ items }) {
+    return (
+        <div>
+            <h2>List Component</h2>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+export default ListComponent;
+```
+2. Table Component (TableComponent.js):
+```jsx
+import React from 'react';
+function TableComponent({ data }) {
+    return (
+        <div>
+            <h2>Table Component</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((row, index) => (
+                        <tr key={index}>
+                            <td>{row.id}</td>
+                            <td>{row.name}</td>
+                            <td>{row.age}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+export default TableComponent;
+```
+
+This component takes a prop data, which is an array of objects representing rows of data. It maps over each row and renders them as table rows (<tr>) with table cells (<td>).
+
+```jsx
+import React from 'react';
+import ListComponent from './ListComponent';
+import TableComponent from './TableComponent';
+function App() {
+    const listItems = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+    const tableData = [
+        { id: 1, name: 'John', age: 25 },
+        { id: 2, name: 'Jane', age: 30 },
+        { id: 3, name: 'Doe', age: 35 }
+    ];
+    return (
+        <div className="App">
+            <h1>Hello World!</h1>
+            <ListComponent items={listItems} />
+            <TableComponent data={tableData} />
+        </div>
+    );
+}
+export default App;
+```
+
+<!-- Experiment – 8 Aim:	To perform use state in react to other state of component. -->
+
+To use state in React, you can utilize the useState hook. Let's say you want to create a simple counter component where you can increment and decrement the count value.
+Here's how you can do it:
+```jsx 
+import React, { useState } from 'react';
+function Counter() {
+    // Define a state variable 'count' and a function 'setCount' to update it
+    const [count, setCount] = useState(0);
+    // Function to handle incrementing the count
+    const increment = () => {
+        setCount(prevCount => prevCount + 1);
+    };
+    // Function to handle decrementing the count
+    const decrement = () => {
+        setCount(prevCount => prevCount - 1);
+    };
+    return (
+        <div>
+            <h2>Counter</h2>
+            <p>Count: {count}</p>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+    );
+}
+```
+export default Counter;In this component:
+We import useState hook from React.
+We declare a state variable count and a function setCount to update it, using useState(0) where 0 is the initial state value.
+We define increment and decrement functions to update the count state.
+Inside the return statement, we render the current value of count and two buttons to increment and decrement the count.
+Now, you can use this Counter component in your App.js or any other parent component:
+```jsx
+import React from 'react'; 
+import Counter from './Counter'; 
+function App() { 
+return ( 
+   <div className="App"> 
+      <h1>Hello World!</h1> 
+      <Counter /> 
+   </div> 
+);
+} 
+export default App; 
+```
+With this setup, you have a counter component that maintains its own state (count) and provides buttons to increment and decrement the count value.
+
+
+
+
+
+<!-- Aim: Use props to send data between components. -->
+
+Props are a way of passing data from parent to child components in React. Let's extend our example to demonstrate how to use props to send data between components.
+We'll create a parent component called App, and two child components: CounterDisplay to display the count value, and CounterButtons to provide buttons for incrementing and decrementing the count value.
+
+1. CounterButtons.js - Child component responsible for rendering buttons:
+```jsx
+import React from 'react';
+function CounterButtons({ onIncrement, onDecrement }) {
+    return (
+        <div>
+            <button onClick={onIncrement}>Increment</button>
+            <button onClick={onDecrement}>Decrement</button>
+        </div>
+    );
+}
+export default CounterButtons;
+```
+2. CounterDisplay.js - Child component responsible for displaying the count value:
+```jsx
+import React from 'react';
+function CounterDisplay({ count }) {
+    return (
+        <div>
+            <p>Count: {count}</p>
+        </div>
+    );
+}
+export default CounterDisplay;
+```
+3. Counter.js - Parent component responsible for managing state and passing data to child components:
+```jsx
+import React, { useState } from 'react';
+import CounterButtons from './CounterButtons';
+import CounterDisplay from './CounterDisplay';
+function Counter() {
+    const [count, setCount] = useState(0);
+    const increment = () => {
+        setCount(prevCount => prevCount + 1);
+    };
+    const decrement = () => {
+        setCount(prevCount => prevCount - 1);
+    };
+    return (
+        <div>
+            <h2>Counter</h2>
+            <CounterDisplay count={count} />
+            <CounterButtons
+                onIncrement={increment}
+                onDecrement={decrement}
+            />
+        </div>
+    );
+}
+export default Counter;
+4. App.js - Entry point where we render the Counter component:
+```jsx
+import React from 'react';
+import Counter from './Counter';
+function App() {
+    return (
+        <div className="App">
+            <h1>Hello World!</h1>
+            <Counter />
+        </div>
+    );
+}
+export default App;
+```
+•	The Counter component manages the state of the count value and defines functions to update it (increment and decrement).
+•	The CounterDisplay component receives the count value as a prop and displays it.
+•	The CounterButtons component receives the onIncrement and onDecrement functions as props and triggers them when the corresponding buttons are clicked.
+•	In the Counter component, we render CounterDisplay and CounterButtons, passing the necessary props to them.
+•	Finally, we render the Counter component inside the App component.
+
+With this setup, the count value is managed by the Counter component, and its state is passed down to the child components CounterDisplay and CounterButtons using props.
+
+
+<!-- Experiment – 9 Aim: To create a server in nodejs and expressjs and send get request. -->
+
+1. Initialize a new Node.js project: Create a new directory for your project and navigate into it in your terminal or command prompt. Then, initialize a new Node.js project by running:
+```bash
+mkdir express-server
+cd express-server
+npm init –y
+```
+This will create a package.json file in your project directory.
+2. Install Express.js: Install Express.js as a dependency by running:
+```bash
+npm install express
+```
+3. Create a server file: Create a new JavaScript file (e.g., server.js) in your project directory and open it in a text editor. Then, add the following code to create a basic Express server and handle a GET request:
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+// Middleware to log incoming requests
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+// Route handler for GET request
+app.get('/', (req, res) => {
+    res.send('Hello, this is the homepage!');
+});
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+```
+In this code:
+We import Express.js and create an instance of the Express application.
+We define a middleware function to log incoming requests to the console.
+We define a route handler for GET requests to the root URL (/). When a GET request is made to the root URL, the server responds with the message "Hello, this is the homepage!"
+We start the server and listen on port 3000.
+4. Run the server: In your terminal or command prompt, run the following command to start the server:
+```bash
+node server.js
+```
+You should see the message "Server is running on http://localhost:3000" in the console.
+Test the server: Open a web browser or use a tool like Postman to send a GET request to http://localhost:3000. You should receive the response "Hello, this is the homepage!"
+
+
+
+
+
+
+
+
+
+<!-- Experiment – 10 Aim: To install MangoDB server and Mongosh on local Machine. -->
+
+MongoDB is a popular NoSQL database. Here are the steps to install MongoDB server and the MongoDB shell (mongosh) on your local machine:
+1. Download MongoDB Community Server: Visit the MongoDB Download Center and download the MongoDB Community Server for your operating system. Choose the appropriate version and package format (e.g., MSI for Windows, .tgz for Linux, .dmg for macOS).
+2. Install MongoDB Community Server:
+•	Windows: Double-click the downloaded MSI file and follow the installation instructions.
+•	Linux: Extract the downloaded .tgz file to your desired installation directory. You may need to move the extracted directory to /usr/local or another appropriate location. Optionally, create a symbolic link to the bin/mongod binary for easier access.
+•	macOS: Double-click the downloaded .dmg file and follow the installation instructions.
+3. Configure MongoDB (Optional):
+By default, MongoDB listens on port 27017. You can configure MongoDB by editing the configuration file (mongod.cfg or mongodb.conf). Common configurations include changing the port number, setting the data directory, enabling authentication, etc.
+4. Start MongoDB Server:
+•	Windows: MongoDB may start automatically after installation. If not, you can start it as a Windows service using the Services tool (services.msc).
+•	Linux/macOS: Open a terminal and navigate to the MongoDB installation directory. Run the mongod command to start the MongoDB server. You may need to specify the path to the data directory using the --dbpath option.
+5. Install MongoDB Shell (mongosh):
+The MongoDB Shell, mongosh, is a command-line interface for MongoDB that allows you to interact with the database.
+•	Using npm: You can install mongosh globally using npm (Node Package Manager) by running the following command:
+```
+npm install -g mongodb
+```
+•	Download pre-built binary: Alternatively, you can download the pre-built binary for your operating system from the MongoDB Download Center.
+6. Connect to MongoDB Server using mongosh:
+Open a terminal or command prompt and run the following command to start the mongosh shell:
+```
+Mongosh
+```
+By default, mongosh connects to the MongoDB server running on localhost on port 27017.
+If your MongoDB server is running on a different host or port, you can specify the connection string using the --host and --port options:
+```
+mongosh --host <hostname> --port <port>> 
+```
+7. Verify Connection:
+Once connected, you can run MongoDB commands to interact with the database. For example, you can run show databases to view the list of databases, use <databaseName> to switch to a specific database, and other MongoDB commands to query and manipulate data.
+
+
+
+
+
+
+<!-- Aim: Create a MongoDB and perform CRUD operations. -->
+
+Let's go through the steps to perform CRUD (Create, Read, Update, Delete) operations in MongoDB.
+1. Install MongoDB: Follow the steps mentioned earlier to install MongoDB on your local machine.
+2. Start MongoDB Server: Start the MongoDB server by running mongod command in your terminal or command prompt.
+3. Connect to MongoDB: Open a new terminal or command prompt window and connect to the MongoDB server using the mongo shell by running the following command:
+```
+mongo
+```
+4. Create Database and Collection: You can create a new database using the use command and create a new collection using the db.createCollection() method. For example:
+```javascript
+use mydatabase 
+db.createCollection("users") 
+```
+5. Perform CRUD Operations:
+Create (Insert): You can insert documents into a collection using the insertOne() or insertMany() methods.
+```javascript
+db.users.insertOne({ name: "John", age: 30 }) 
+```
+Read (Find): You can query documents in a collection using the find() method. For example, to find all documents in the users collection:
+```javascript
+db.users.find() 
+```
+Update: You can update documents in a collection using the updateOne() or updateMany() methods.
+```javascript
+db.users.updateOne({ name: "John" }, { $set: { age: 35 } }) 
+```
+Delete: You can delete documents from a collection using the deleteOne() or deleteMany() methods.
+```javascript
+db.users.deleteOne({ name: "John" }) 
+```
+Here's a basic Node.js script using the mongodb package to perform CRUD operations programmatically:
+```javascript
+const { MongoClient } = require('mongodb');
+// Connection URI
+const uri = 'mongodb://localhost:27017';
+// Database Name
+const dbName = 'mydatabase';
+// Create a new MongoClient
+const client = new MongoClient(uri);
+async function main() {
+    try {
+        // Connect to the MongoDB server
+        await client.connect();
+        // Select the database
+        const db = client.db(dbName);
+        // Insert a document
+        const insertResult = await db.collection('users').insertOne({ name: 'John', age: 30 });
+        console.log('Inserted document:', insertResult.insertedId);
+        // Find documents
+        const findResult = await db.collection('users').find().toArray();
+        console.log('Found documents:', findResult);
+        // Update a document
+        const updateResult = await db.collection('users').updateOne({ name: 'John' }, { $set: { age: 35 } });
+        console.log('Updated document:', updateResult.modifiedCount);
+
+        // Delete a document
+        const deleteResult = await db.collection('users').deleteOne({ name: 'John' });
+        console.log('Deleted document:', deleteResult.deletedCount);
+    } finally {
+        // Close the connection
+        await client.close();
+    }
+}
+// Call the main function
+main().catch(console.error);
+
+
+
+<!-- Experiment – 13 Aim: Create a web-based system to streamline the process of booking appointments. -->
+
+// src/components/AppointmentList.js
+import React from 'react';
+function AppointmentList() {
+    const appointments = [
+        { id: 1, name: 'Saurav', date: '2024-05-10', time: '10:00 AM' },
+        { id: 2, name: 'Ravi', date: '2024-05-12', time: '2:00 PM' },
+        { id: 3, name: 'Ravita', date: '2024-05-15', time: '11:30 AM' }
+    ];
+    return (
+        <div>
+            <h2>Appointments</h2>
+            <ul>
+                {appointments.map(appointment => (
+                    <li key={appointment.id}>
+                        <div>Name: {appointment.name}</div>
+                        <div>Date: {appointment.date}</div>
+                        <div>Time: {appointment.time}</div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+export default AppointmentList;
+
+
+// src/App.js
+import React from 'react';
+import './App.css';
+import AppointmentList from './components/AppointmentList';
+function App() {
+    return (
+        <div className="App">
+            <h1>Appointment Booking App</h1>
+            <AppointmentList />
+        </div>
+    );
+}
+export default App;
+
+
+/* src/App.css */
+.App {
+    text-align: center;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+Output:
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Experiment – 14 Aim: Develop a web based tool for medical professionals to easily store and access patient record. -->
+
+// src/components/PatientList.js
+import React from 'react';
+function PatientList() {
+    // Array of patient records
+    const patients = [
+        { id: 1, name: 'Gojo', age: 35, gender: 'Male', diagnosis: 'Hypertension' },
+        { id: 2, name: 'Toji', age: 40, gender: 'Male', diagnosis: 'Diabetes' },
+        { id: 3, name: 'Nobara', age: 25, gender: 'Female', diagnosis: 'Asthma' }
+    ];
+    return (
+        <div>
+            <h2>Patient Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Diagnosis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {patients.map(patient => (
+                        <tr key={patient.id}>
+                            <td>{patient.id}</td>
+                            <td>{patient.name}</td>
+                            <td>{patient.age}</td>
+                            <td>{patient.gender}</td>
+                            <td>{patient.diagnosis}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+export default PatientList;
+
+
+/* src/App.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+
+<!-- Experiment – 15 Aim: Develop a wed application to facilitate collaboration between teachers and students. -->
+
+// src/App.js
+import React, { useState } from 'react';
+import './App.css';
+import TeacherDashboard from './components/TeacherDashboard';
+import StudentDashboard from './components/StudentDashboard';
+function App() {
+    const [userRole, setUserRole] = useState('teacher');
+    return (
+        <div className="App">
+            <h1>Collaboration App</h1>
+            {userRole === 'teacher' ? <TeacherDashboard /> : <StudentDashboard />}
+        </div>
+    );
+}
+export default App;
+
+
+// src/components/TeacherDashboard.js
+import React from 'react';
+import './Dashboard.css';
+function TeacherDashboard() {
+    return (
+        <div>
+            <h2>Teacher Dashboard</h2>
+            <div>
+                <h3>Courses</h3>
+                <ul>
+                    <li>Course 1</li>
+                    <li>Course 2</li>
+                    <li>Course 3</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Messages</h3>
+                <p>No new messages</p>
+            </div>
+            <div>
+                <h3>Assignments</h3>
+                <ul>
+                    <li>Assignment 1</li>
+                    <li>Assignment 2</li>
+                    <li>Assignment 3</li>
+                </ul>
+            </div>
+            {/* Add more features as needed */}
+        </div>
+    );
+}
+export default TeacherDashboard;
+
+/* Style for dashboard container */
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Style for dashboard section */
+.dashboard-section {
+    margin-bottom: 20px;
+}
+/* Style for heading */
+.dashboard-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+/* Style for list items */
+.dashboard-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.dashboard-section li {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
