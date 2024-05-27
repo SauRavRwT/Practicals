@@ -1,0 +1,1639 @@
+Experiment 1
+
+Aim: Wap to demonstrate dynamic polymorphism.
+
+Code:
+class student {
+  void me() {
+    int a = 1, b = 2, c = a + b;
+    System.out.println("The value at student: " + c);
+  }
+}
+
+class child extends student {
+  void me() {
+    int a = 4, b = 3, c = a + b;
+    System.out.println("The value of child: " + c);
+  }
+}
+
+class tony extends child {
+  void me() {
+    int a = 43, b = 33, c = a + b;
+    System.out.println("The value of child: " + c);
+  }
+}
+
+class robert extends tony {
+  void me() {
+    int a = 43, b = 33, c = a + b;
+    System.out.println("The value of child: " + c);
+  }
+}
+
+class exp1 {
+  public static void main(String[] args) {
+    student random = new child();
+    student random1 = new tony();
+    student random2 = new robert();
+    random.me();
+    random1.me();
+    random2.me();
+    System.out.println("Hello");
+    System.out.println("Saurav Rawat");
+  }
+}
+
+
+Experiment 2
+
+Aim: Wap to demonstrate multiple implementations using interfaces.
+
+Code:
+interface Walkable {
+	void walk();
+}
+
+interface Swimmable {
+	void swim();
+}
+
+class Duck implements Walkable, Swimmable {
+	public void walk() {
+		System.out.println("Duck is walking.");
+	}
+	public void swim() {
+		System.out.println("Duck is swimming.");
+		System.out.println("Saurav Rawat");
+	}
+}
+
+class exp2 {
+	public static void main(String[] args) {
+		Duck duck = new Duck();
+		duck.walk();
+		duck.swim();
+	}
+}
+
+
+Experiment 3
+
+Aim: Wap to demonstrate hybrid inheritance.
+Code:
+
+class Parent {
+  void displayParent() {
+    System.out.println("This is the parent class");
+  }
+}
+
+class Child1 extends Parent {
+  void displayChild1() {
+    System.out.println("This is the first child class");
+  }
+}
+
+class Child2 extends Parent {
+  void displayChild2() {
+    System.out.println("This is the second child class");
+  }
+}
+class Grandchild extends Child1 {
+  void displayGrandchild() {
+    System.out.println("This is the grandchild class");
+  }
+}
+public class exp3 {
+  public static void main(String[] args) {
+    Grandchild grandchild = new Grandchild();
+    grandchild.displayParent();
+    grandchild.displayChild1();
+    grandchild.displayGrandchild();
+    Child2 child2 = new Child2();
+    child2.displayParent();
+    child2.displayChild2();
+    System.out.println("Saurav Rawat");
+  }
+}
+
+
+Experiment 4
+
+Aim: Wap to check the age criteria in voter id with using exception handling.
+Code:
+
+import java.util.Scanner;
+
+public class exp4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        try {
+            System.out.print("Enter your age: ");
+            int age = scanner.nextInt();    
+            if (age < 18) {
+                throw new InvalidAgeException("You must be at least 18 years old to vote!");
+            } else {
+                System.out.println("You are eligible to vote!");
+                
+            }
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter a valid age.");
+        } finally {
+            scanner.close();
+        }
+    }
+}
+
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+Experiment 5
+
+Aim: Producer Consumer problem with using multi-threading.
+Code:
+
+import java.util.LinkedList;
+
+public class exp5 {
+    public static void main(String[] args)
+            throws InterruptedException {
+        final PC pc = new PC();
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    pc.produce();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    pc.consume();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+    }
+
+    public static class PC {
+        LinkedList<Integer> list = new LinkedList<>();
+        int capacity = 2;
+        public void produce() throws InterruptedException {
+            int value = 0;
+            while (true) {
+                synchronized (this) {
+                    while (list.size() == capacity)
+                        wait();
+
+                    System.out.println("Producer produced-"
+                            + value);
+                    list.add(value++);
+                    notify();
+                    Thread.sleep(1000);
+                }
+            }
+        }
+
+        public void consume() throws InterruptedException {
+            while (true) {
+                synchronized (this) {
+                    while (list.size() == 0)
+                        wait();
+                    int val = list.removeFirst();
+                    System.out.println("Consumer consumed-"
+                            + val);
+                    notify();
+                    Thread.sleep(1000);
+                    System.out.println("Saurav Rawat");
+                }
+            }
+        }
+    }
+}
+
+
+Experiment 6
+
+Aim: Producer Consumer problem with using multi-threading runnable interface.
+Code:
+
+import java.util.LinkedList;
+
+class Buffer {
+  private LinkedList<Integer> buffer = new LinkedList<>();
+  private int capacity;
+  public Buffer(int capacity) {
+    this.capacity = capacity;
+  }
+
+  public synchronized void produce(int item) throws InterruptedException {
+    while (buffer.size() == capacity) {
+      wait();
+    }
+    buffer.add(item);
+    System.out.println("Produced: " + item);
+    notifyAll();
+  }
+
+  public synchronized int consume() throws InterruptedException {
+    while (buffer.isEmpty()) {
+      wait();
+    }
+    int item = buffer.removeFirst();
+    System.out.println("Consumed: " + item);
+    System.out.println("Saurav Rawat");
+    notifyAll();
+    return item;
+  }
+}
+
+class Producer implements Runnable {
+  private Buffer buffer;
+  public Producer(Buffer buffer) {
+    this.buffer = buffer;
+  }
+
+  @Override
+  public void run() {
+    try {
+      for (int i = 1; i <= 10; i++) {
+        buffer.produce(i);
+        Thread.sleep(1000);
+      }
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+}
+
+class Consumer implements Runnable {
+  private Buffer buffer;
+  public Consumer(Buffer buffer) {
+    this.buffer = buffer;
+  }
+
+  @Override
+  public void run() {
+    try {
+      for (int i = 1; i <= 10; i++) {
+        buffer.consume();
+        Thread.sleep(2000);
+      }
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+}
+
+public class exp5 {
+  public static void main(String[] args) {
+    Buffer buffer = new Buffer(5);
+    Thread producerThread = new Thread(new Producer(buffer));
+    Thread consumerThread = new Thread(new Consumer(buffer));
+    producerThread.start();
+    consumerThread.start();
+  }
+}
+
+
+Experiment 7
+
+Aim: Reader writer problem with using multi-threading.
+Code: 
+
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+class ReaderWriter {
+    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    private int data = 0;
+    public void readData() {
+        lock.readLock().lock();
+        try {
+            System.out.println("Reading data: " + data);
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+    public void writeData(int newData) {
+        lock.writeLock().lock();
+        try {
+            System.out.println("Writing data: " + newData);
+            System.out.println("Saurav Rawat");
+            data = newData;
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+}
+class Reader implements Runnable {
+    private ReaderWriter readerWriter;
+    public Reader(ReaderWriter readerWriter) {
+        this.readerWriter = readerWriter;
+    }
+    @Override
+    public void run() {
+        while (true) {
+            readerWriter.readData();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+class Writer implements Runnable {
+    private ReaderWriter readerWriter;
+    public Writer(ReaderWriter readerWriter) {
+        this.readerWriter = readerWriter;
+    }
+    @Override
+    public void run() {
+        int newData = 1;
+        while (true) {
+            readerWriter.writeData(newData);
+            newData++;
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+public class exp7 {
+    public static void main(String[] args) {
+        ReaderWriter readerWriter = new ReaderWriter();
+        Thread readerThread = new Thread(new Reader(readerWriter));
+        Thread writerThread = new Thread(new Writer(readerWriter));
+        readerThread.start();
+        writerThread.start();
+    }
+}
+
+
+Experiment 8
+
+Aim: Program to get the ip address of a website using InetAddress class.
+Code: 
+import java.net.InetAddress;
+public class exp8 {
+    public static void main(String[] args) {
+        try {
+            InetAddress inet = InetAddress.getByName("www.google.com");
+            System.out.println("Ip address of google is  "+inet.getHostAddress());
+            System.out.println("Saurav Rawat");
+        } catch (Exception e) {
+            System.out.println("exception"+e);
+        }
+    }
+}
+
+
+Experiment 9
+
+Aim: Wap of socket programming.
+Code: Server Side
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class socketserver {
+    public static void main(String[] args) {
+        final int PORT = 12345;
+        try {
+            ServerSocket serverSocket = new ServerSocket(PORT);
+            System.out.println("Server started, listening on port " + PORT);
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Client connected: " + clientSocket);
+                new Thread(new ClientHandler(clientSocket)).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static class ClientHandler implements Runnable {
+        private Socket clientSocket;
+        private BufferedReader in;
+        private PrintWriter out;
+        public ClientHandler(Socket socket) {
+            this.clientSocket = socket;
+        }
+
+        @Override
+        public void run() {
+            try {
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                out = new PrintWriter(clientSocket.getOutputStream(), true);
+                String inputLine;
+                Scanner scanner = new Scanner(System.in);
+                while ((inputLine = in.readLine()) != null) {
+                    System.out.println("Client: " + inputLine);
+                    System.out.print("Server: ");
+                    String serverMessage = scanner.nextLine();
+                    out.println(serverMessage);
+                    
+                    if (inputLine.equalsIgnoreCase("bye"))
+                        break;
+                }
+                in.close();
+                out.close();
+                clientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+Code: Client Side
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class socketclient {
+    public static void main(String[] args) {
+        final String SERVER_IP = "localhost";
+        final int SERVER_PORT = 12345;
+        try {
+            Socket socket = new Socket(SERVER_IP, SERVER_PORT);
+            System.out.println("Connected to server.");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            String userInput;
+            while ((userInput = reader.readLine()) != null) {
+                out.println(userInput);
+                System.out.println("Server: " + in.readLine());
+
+                if (userInput.equals("bye"))
+                    break;
+            }
+            reader.close();
+            in.close();
+            out.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Experiment 10
+
+Aim: Wap to print factorial with socket programming.
+Code: Server Side
+import java.io.*;
+import java.net.*;
+
+public class factorialserver {
+  public static void main(String[] args) {
+    try {
+      ServerSocket serverSocket = new ServerSocket(12345);
+      while (true) {
+        System.out.println("Server waiting for client...");
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected");
+        BufferedReader in = new BufferedReader(
+          new InputStreamReader(clientSocket.getInputStream())
+        );
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+        int number = Integer.parseInt(in.readLine());
+        long factorial = calculateFactorial(number);
+        System.out.println("Factorial of " + number + " is: " + factorial);
+        out.println(factorial);
+        clientSocket.close();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static long calculateFactorial(int n) {
+    if (n == 0 || n == 1) {
+      return 1;
+    }
+    return n * calculateFactorial(n - 1);
+  }
+}
+
+
+Code: Client Side:
+
+import java.io.*;
+import java.net.*;
+
+public class factorialclient {
+
+  public static void main(String[] args) {
+    try {
+      Socket socket = new Socket("localhost", 12345);
+      BufferedReader userInput = new BufferedReader(
+        new InputStreamReader(System.in)
+      );
+      BufferedReader in = new BufferedReader(
+        new InputStreamReader(socket.getInputStream())
+      );
+      PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+      System.out.println("Enter a number:");
+      int number = Integer.parseInt(userInput.readLine());
+
+      out.println(number);
+
+      String response = in.readLine();
+      System.out.println("Server response: " + response);
+
+      socket.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}
+
+
+Experiment 11
+Aim :  Prog. To demonstrate all five keywords of exception handling (try, catch, throw, throws and finally)
+Code : 
+
+// Prog. To demonstrate all five keywords of
+// exception handling ( try , catch, throw,
+// throws and finally)
+public class Experiment4 {
+    public static void main(String[] args) throws Exception {
+        // try block
+        try {
+            throw new Exception("this is demo of throw exception");
+            
+        } catch (Exception e) {
+            System.out.println("exception Occurs = " + e);
+        }
+        finally{
+            System.out.println("Finally Used All try,Catch,throw,throws and finally");
+            System.out.println(“Saurav Rawat”);
+        }8/
+        
+    }
+}
+
+ 
+Experiment 12
+
+Aim: Wap to create a server to handle multiple client’s connections using multithreading.
+Code:
+
+Server
+import java.io.*;
+import java.net.*;
+public class exp11 {
+    public static void main(String[] args) {
+        final int PORT = 8888;
+        ServerSocket serverSocket = null;
+        try {
+            // Create a ServerSocket
+            serverSocket = new ServerSocket(PORT);
+            System.out.println("Server started on port " + PORT);
+            // Listen for incoming connections
+            while (true) {
+                // Accept incoming connection
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Accepted connection from " + clientSocket.getInetAddress());
+                // Create a new thread to handle the client
+                ClientHandler clientHandler = new ClientHandler(clientSocket);
+                Thread clientThread = new Thread(clientHandler);
+                clientThread.start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (serverSocket != null) {
+                try {
+                    serverSocket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+class ClientHandler implements Runnable {
+    private Socket clientSocket;
+
+    public ClientHandler(Socket socket) {
+        this.clientSocket = socket;
+    }
+    @Override
+    public void run() {
+        try {
+            // Create input and output streams
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            String inputLine;
+            // Read from the client and echo back
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println("Received from client: " + inputLine);
+                out.println(inputLine); // Echo back to client
+            }
+            // Close streams and socket
+            in.close();
+            out.close();
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Client
+import java.io.*;
+import java.net.*;
+public class exp11b {
+    public static void main(String[] args) {
+        final String SERVER_HOST = "localhost";
+        final int SERVER_PORT = 8888;
+        try {
+            // Connect to the server
+            Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+            System.out.println("Connected to server on " + SERVER_HOST + ":" + SERVER_PORT);
+            // Create input and output streams
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
++
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            // Send messages to the server
+            out.println("Hello, Ravita!");
+            out.println("How are you?");
+            // Receive responses from the server
+            String response;
+            while ((response = in.readLine()) != null) {
+                System.out.println("Server response: " + response);
+            }
+            // Close streams and socket
+            in.close();
+            out.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Experiment 13
+
+Aim: Wap to implement client-server file transfer.
+Code:
+
+Server:
+import java.io.*;
+import java.net.*;
+public class exp12 {
+    public static void main(String[] args) {
+        final int PORT = 8888;
+        final String FILE_PATH = "sample.txt";
+        try {
+            // Create ServerSocket
+            ServerSocket serverSocket = new ServerSocket(PORT);
+            System.out.println("Server started on port " + PORT);
+            // Accept client connection
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Client connected: " + clientSocket.getInetAddress());
+            // Create input stream
+            FileInputStream fileIn = new FileInputStream(FILE_PATH);
+            BufferedInputStream bufferedFileIn = new BufferedInputStream(fileIn);
+            // Create output stream
+            OutputStream out = clientSocket.getOutputStream();
+            // Transfer file data
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = bufferedFileIn.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+            System.out.println("File sent successfully");
+            // Close streams and socket
+            bufferedFileIn.close();
+            out.close();
+            clientSocket.close();
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Client:
+import java.io.*;
+import java.net.*;
+public class exp12b {
+    public static void main(String[] args) {
+        final String SERVER_HOST = "localhost";
+        final int SERVER_PORT = 8888;
+        final String FILE_PATH = "received_file.txt";
+        try {
+            // Connect to server
+            Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+            System.out.println("Connected to server");
+            // Create input stream
+            InputStream in = socket.getInputStream();
+            BufferedInputStream bufferedIn = new BufferedInputStream(in);
+            // Create output stream
+            FileOutputStream fileOut = new FileOutputStream(FILE_PATH);
+            BufferedOutputStream bufferedFileOut = new BufferedOutputStream(fileOut);
+            // Transfer file data
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = bufferedIn.read(buffer)) != -1) {
+                bufferedFileOut.write(buffer, 0, bytesRead);
+            }
+            System.out.println("Ravita received file successfully");
+            // Close streams and socket
+            bufferedFileOut.close();
+            bufferedIn.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ 
+Experiment 14
+
+Aim:  Create a simple chat application where clients can connect to a server.
+Code:
+
+Server:
+import java.io.*;
+import java.net.*;
+import java.util.*;
+public class exp13 {
+    private static final int PORT = 8888;
+    private static Set<PrintWriter> clientWriters = new HashSet<>();
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+            System.out.println("Chat server started on port " + PORT);
+            while (true) {
+                new ClientHandler(serverSocket.accept()).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static class ClientHandler extends Thread {
+        private Socket socket;
+        private PrintWriter out;
+        private BufferedReader in;
+
+        public ClientHandler(Socket socket) {
+            this.socket = socket;
+        }
+        public void run() {
+            try {
+                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                out = new PrintWriter(socket.getOutputStream(), true);
+                synchronized (clientWriters) {
+                    clientWriters.add(out);
+                }
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    synchronized (clientWriters) {
+                        for (PrintWriter writer : clientWriters) {
+                            writer.println(inputLine);
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    in.close();
+                    out.close();
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                synchronized (clientWriters) {
+                    clientWriters.remove(out);
+                }
+            }
+        }
+    }
+}
+	
+Client:
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+public class exp13b {
+    private static final String SERVER_HOST = "localhost";
+    private static final int SERVER_PORT = 8888;
+    public static void main(String[] args) {
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+             Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Connected to chat server");
+            new Thread(() -> {
+                try {
+                    String serverResponse;
+                    while ((serverResponse = in.readLine()) != null) {
+                        System.out.println(serverResponse);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            String userInput;
+            while (true) {
+                userInput = scanner.nextLine();
+                if (userInput.equalsIgnoreCase("quit")) break;
+                out.println(userInput);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Experiment 15
+
+Aim: Wap to create UDP server that listens to datagram on a specific port.
+Code:
+
+Server: 
+import java.io.*;
+import java.net.*;
+public class exp14 {
+    private static final int PORT = 8888;
+    private static final int BUFFER_SIZE = 1024;
+    public static void main(String[] args) {
+        try (DatagramSocket serverSocket = new DatagramSocket(PORT)) {
+            System.out.println("UDP Server started on port " + PORT);
+            while (true) {
+                byte[] receiveData = new byte[BUFFER_SIZE];
+                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+                // Receive packet from client
+                serverSocket.receive(receivePacket);
+                String receivedMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
+                InetAddress clientAddress = receivePacket.getAddress();
+                int clientPort = receivePacket.getPort();
+                System.out.println("Received from " + clientAddress + ":" + clientPort + " - " + receivedMessage);
+                // Send response back to client
+                String responseMessage = "Message received: " + receivedMessage;
+                byte[] sendData = responseMessage.getBytes();
+                DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
+                serverSocket.send(sendPacket);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Client:
+import java.io.*;
+import java.net.*;
+public class exp14b {
+    private static final String SERVER_HOST = "localhost";
+    private static final int SERVER_PORT = 8888;
+    private static final int BUFFER_SIZE = 1024;
+    public static void main(String[] args) {
+        try (DatagramSocket clientSocket = new DatagramSocket()) {
+            InetAddress serverAddress = InetAddress.getByName(SERVER_HOST);
+            // Send messages to server
+            while (true) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                System.out.print("Enter message to send to server: ");
+                String message = reader.readLine();
+
+                byte[] sendData = message.getBytes();
+                DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, serverAddress, SERVER_PORT);
+                clientSocket.send(sendPacket);
+                // Receive response from server
+                byte[] receiveData = new byte[BUFFER_SIZE];
+                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+                clientSocket.receive(receivePacket);
+
+                String responseMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
+                System.out.println("Server response: " + responseMessage);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ 
+Experiment 16
+
+Aim: Design a java program to write a calculator applet. Use grid layout to arrange the buttons for digits and for the +,-,*,/,% operations. Add textfield to display the result.
+Code: 
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+public class CalculatorApplet extends Applet implements ActionListener {
+    TextField display;
+    Button[] buttons;
+    public void init() {
+        setLayout(new BorderLayout());
+        // Create display text field
+        display = new TextField();
+        display.setEditable(false);
+        add(display, BorderLayout.NORTH);
+        // Create panel for buttons
+        Panel buttonPanel = new Panel();
+        buttonPanel.setLayout(new GridLayout(4, 4));
+        // Create buttons for digits and operations
+        buttons = new Button[16];
+        String[] buttonLabels = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", ".", "=", "+"
+        };
+        for (int i = 0; i < 16; i++) {
+            buttons[i] = new Button(buttonLabels[i]);
+            buttons[i].addActionListener(this);
+            buttonPanel.add(buttons[i]);
+        }
+        add(buttonPanel, BorderLayout.CENTER);
+    }
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.equals("=")) {
+            // Evaluate expression and display result
+            try {
+                String expression = display.getText();
+                double result = evaluateExpression(expression);
+                display.setText(Double.toString(result));
+            } catch (Exception ex) {
+                display.setText("Error");
+            }
+        } else {
+            // Append button label to display text
+            display.setText(display.getText() + command);
+        }
+    }
+    private double evaluateExpression(String expression) {
+        // Method to evaluate arithmetic expressions
+        return Calculator.evaluate(expression);
+    }
+}
+class Calculator {
+    public static double evaluate(String expression) {
+        // Method to evaluate arithmetic expressions
+        return new Object() {
+            int pos = -1, ch;
+            void nextChar() {
+                ch = (++pos < expression.length()) ? expression.charAt(pos) : -1;
+            }
+
+            boolean isDigit(char c) {
+                return Character.isDigit(c);
+            }
+            double parse() {
+                nextChar();
+                double x = parseExpression();
+                if (pos < expression.length()) throw new RuntimeException("Unexpected: " + (char)ch);
+                return x;
+            }
+            double parseExpression() {
+                double x = parseTerm();
+                for (;;) {
+                    if (eat('+')) x += parseTerm();
+                    else if (eat('-')) x -= parseTerm();
+                    else return x;
+                }
+            }
+            double parseTerm() {
+                double x = parseFactor();
+                for (;;) {
+                    if (eat('*')) x *= parseFactor();
+                    else if (eat('/')) x /= parseFactor();
+                    else return x;
+                }
+            }
+            double parseFactor() {
+                if (eat('+')) return parseFactor();
+                if (eat('-')) return -parseFactor();
+
+                double x;
+                int startPos = this.pos;
+                if (eat('(')) {
+                    x = parseExpression();
+                    eat(')');
+                } else if (isDigit((char)ch)) {
+                    while (isDigit((char)ch)) nextChar();
+                    x = Double.parseDouble(expression.substring(startPos, this.pos));
+                } else {
+                    throw new RuntimeException("Unexpected: " + (char)ch);
+                }
+                return x;
+            }
+            boolean eat(int charToEat) {
+                while (Character.isWhitespace(ch)) nextChar();
+                if (ch == charToEat) {
+                    nextChar();
+                    return true;
+                }
+                return false;
+            }
+        }.parse();
+    }
+}
+
+
+Experiment 17
+
+Aim:  Write a java program to create an Applet that displays 4 buttons and also count number of button clicks on each button.
+Code:
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+public class ButtonClickCounter extends Applet implements ActionListener {
+    Button button1, button2, button3, button4;
+    int count1, count2, count3, count4;
+    public void init() {
+        setLayout(new FlowLayout());
+        // Create buttons
+        button1 = new Button("Button 1");
+        button2 = new Button("Button 2");
+        button3 = new Button("Button 3");
+        button4 = new Button("Button 4");
+        // Add action listeners to buttons
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+        button3.addActionListener(this);
+        button4.addActionListener(this);
+        // Add buttons to the applet
+        add(button1);
+        add(button2);
+        add(button3);
+        add(button4);
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button1) {
+            count1++;
+            showStatus("Button 1 clicked " + count1 + " times.");
+        } else if (e.getSource() == button2) {
+            count2++;
+            showStatus("Button 2 clicked " + count2 + " times.");
+        } else if (e.getSource() == button3) {
+            count3++;
+            showStatus("Button 3 clicked " + count3 + " times.");
+        } else if (e.getSource() == button4) {
+            count4++;
+            showStatus("Button 4 clicked " + count4 + " times.");
+        }
+    }
+}
+
+
+Experiment 18
+
+Aim: Write a Java program to create a bean that display employee name, salary, designation and company.
+Code: 
+
+//Employee.java
+public class Employee {
+    private String name;
+    private double salary;
+    private String designation;
+    private String company;
+    // Default constructor
+    public Employee() {
+    }
+    // Parameterized constructor
+    public Employee(String name, double salary, String designation, String company) {
+        this.name = name;
+        this.salary = salary;
+        this.designation = designation;
+        this.company = company;
+    }
+    // Getters and setters
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public double getSalary() {
+        return salary;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public String getDesignation() {
+        return designation;
+    }
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
+    }
+    // Override toString method to display Employee information
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", designation='" + designation + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
+}
+
+
+//MainClass.java
+public class MainClass {
+    public static void main(String[] args) {
+        // Creating instances of Employee
+        Employee emp1 = new Employee("Ravi Kumar Thakur", 50000, "Software Engineer", "ABC Corp");
+        Employee emp2 = new Employee("Saurav Rawat", 60000, "Senior Software Engineer", "XYZ Inc");
+        Employee emp3 = new Employee("Ravita", 50000, " jr Software Engineer", "INZ Inc");
+        // Displaying employee information
+        System.out.println("Employee 1:");
+        System.out.println(emp1);
+        System.out.println("\nEmployee 2:");
+        System.out.println(emp2);
+        System.out.println("\nEmployee 3:");
+        System.out.println(emp3);
+        // Modifying employee information
+        emp1.setSalary(55000);
+        emp2.setCompany("PQR Ltd");
+        // Displaying modified employee information
+        System.out.println("\nEmployee 1 (after salary update):");
+        System.out.println(emp1);
+        System.out.println("\nEmployee 2 (after company update):");
+        System.out.println(emp2);
+    }
+}
+
+ 
+Experiment 19
+
+Aim: Write a Java program to create a bean to convert the Indian Rupee to American dollar and to pound.
+Code: 
+
+// CurrencyConverter.java
+public class CurrencyConverter {
+    private double inr;
+    private double usd;
+    private double gbp;
+    // Default constructor
+    public CurrencyConverter() {
+    }
+    // Parameterized constructor
+    public CurrencyConverter(double inr) {
+        this.inr = inr;
+        convert();
+    }
+    // Getters and setters
+    public double getInr() {
+        return inr;
+    }
+    public void setInr(double inr) {
+        this.inr = inr;
+        convert();
+    }
+    public double getUsd() {
+        return usd;
+    }
+    public void setUsd(double usd) {
+        this.usd = usd;
+    }
+    public double getGbp() {
+        return gbp;
+    }
+    public void setGbp(double gbp) {
+        this.gbp = gbp;
+    }
+    // Convert INR to USD and GBP
+    private void convert() {
+        // Conversion rates (as of current exchange rates)
+        double usdRate = 0.014; // 1 INR = 0.014 USD
+        double gbpRate = 0.010; // 1 INR = 0.010 GBP
+        // Convert INR to USD and GBP
+        this.usd = inr * usdRate;
+        this.gbp = inr * gbpRate;
+    }
+    // Override toString method to display converted amounts
+    @Override
+    public String toString() {
+        return "CurrencyConverter{" +
+                "inr=" + inr +
+                ", usd=" + usd +
+                ", gbp=" + gbp +
+                '}';
+    }
+}
+
+//Main.java
+public class MainClass {
+    public static void main(String[] args) {
+        // Create an instance of CurrencyConverter
+        CurrencyConverter converter = new CurrencyConverter();
+        // Set the INR amount
+        converter.setInr(1000);
+        // Get the converted amounts
+        double usdAmount = converter.getUsd();
+        double gbpAmount = converter.getGbp();
+        // Display the converted amounts
+        System.out.println("INR: " + converter.getInr());
+        System.out.println("Equivalent USD: " + usdAmount);
+        System.out.println("Equivalent GBP: " + gbpAmount);
+        System.out.println("Saurav Rawat");
+    }
+}
+
+
+Experiment 20
+
+Aim: Write a Java program to show user validation using Servlet.
+Code: 
+
+//Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="validate" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+
+//UserValidation.java
+import java.io.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+public class UserValidationServlet extends HttpServlet {
+    // Hardcoded valid username and password
+    private static final String VALID_USERNAME = "Saurav-Rawat ";
+    private static final String VALID_PASSWORD = "password123";
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response); // Forward GET requests to doPost()
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get username and password entered by the user
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        // Validate the username and password
+        boolean isValid = validateUser(username, password);
+        // Prepare response message
+        String message;
+        if (isValid) {
+            message = "Login successful. Welcome, " + username + "!";
+        } else {
+            message = "Invalid username or password. Please try again.";
+        }
+        // Set response content type
+        response.setContentType("text/html");
+        // Write response message
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h2>" + message + "</h2>");
+        out.println("</body></html>");
+    }
+    // Method to validate user credentials
+    private boolean validateUser(String username, String password) {
+        return VALID_USERNAME.equals(username) && VALID_PASSWORD.equals(password);
+    }
+}
+
+ 
+Experiment 21
+
+Aim: Write a program to set cookie information using Servlet.
+Code:
+
+import java.io.IOException;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/setCookie")
+public class SetCookieServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Create a new cookie
+        Cookie cookie = new Cookie("Saurav", "Saurav"); 
+        // Set cookie's expiration time to 1 minute (60 seconds)
+        cookie.setMaxAge(60);       
+        // Add the cookie to the response
+        response.addCookie(cookie);       
+        // Set response content type
+        response.setContentType("text/html");
+        // Write a message to the response
+        response.getWriter().println("<html><body>");
+        response.getWriter().println("<h2>Cookie set successfully!</h2>");
+        // Display the name of the cookie that was set
+        response.getWriter().println("<p>Cookie name: " + cookie.getName() + "</p>");
+        response.getWriter().println("</body></html>");
+    }
+}
+
+ 
+Experiment 22
+
+Aim: Write a java program to insert data into a table using JSP
+Code:
+ 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Data</title>
+</head>
+<body>
+    <h2>Insert Data into Table</h2>
+    <form action="Insertdata.jsp" method="post">
+        Name: <input type="text" name="name"><br>
+        Age: <input type="number" name="age"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <%
+        String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+        String DB_URL = "jdbc:mysql://localhost/test";
+        String USER = "root";
+        String PASS = "root";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName(JDBC_DRIVER);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            String name = request.getParameter("name");
+            String ageParam = request.getParameter("age");           
+            // Check if ageParam is not null or empty
+            if (ageParam != null && !ageParam.isEmpty()) {
+                int age = Integer.parseInt(ageParam);
+                String sql = "INSERT INTO students (name, age) VALUES (?, ?)";
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, name);
+                pstmt.setInt(2, age);
+                int rowsAffected = pstmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    out.println("<p>Data inserted successfully!</p>");
+                }
+            } else {
+                out.println("<p>Please provide a valid age.</p>");
+            }
+        } catch (Exception e) {
+            out.println("<p>Error: " + e.getMessage() + "</p>");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    %>
+</body>
+</html>
+
+ 
+Experiment 23
+
+Aim: Write JSP program to implement form data validation.
+Code: 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var email = document.forms["myForm"]["email"].value;
+            // Check if name is empty
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            // Check if email is empty
+            if (email == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            // Check if email format is valid
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.match(emailPattern)) {
+                alert("Invalid email format");
+                return false;
+            }
+            // Form is valid
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Form Validation</h2>
+    <form name="myForm" action="processForm.jsp" onsubmit="return validateForm()" method="post">
+        Name: <input type="text" name="name"><br>
+        Email: <input type="text" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+ 
+Experiment 24
+
+Aim: Build a simple Employee Registration Form example using a combination of JSP, Servlet, JDBC and MySQL database.
+Code: 
+// RegisterServlet.java
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String position = request.getParameter("position");
+        String department = request.getParameter("department");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String url = "jdbc:mysql://localhost:3306/employee_db";
+        String username = "root";
+        String password = "root";
+        Connection conn = null;
+        PreparedStatement statement = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, username, password);
+            String sql = "INSERT INTO employees (name, email, position, department, salary) VALUES (?, ?, ?, ?, ?)";
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, email);
+            statement.setString(3, position);
+            statement.setString(4, department);
+            statement.setDouble(5, salary);
+            statement.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            // Handle any exception appropriately (e.g., logging, error page)
+        } finally {
+            // Close resources in a finally block
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle any exception appropriately (e.g., logging)
+            }
+        }
+
+        // Redirect to display.jsp after registration
+        response.sendRedirect("display.jsp");
+    }
+}
+
+// display.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h2>Employee List</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        <% 
+            String url = "jdbc:mysql://localhost:3306/employee_db";
+            String username = "your_username";
+            String password = "your_password";
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection(url, username, password);
+                String sql = "SELECT * FROM employees";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    String name = resultSet.getString("name");
+                    String email = resultSet.getString("email");
+                    String position = resultSet.getString("position");
+                    String department = resultSet.getString("department");
+                    double salary = resultSet.getDouble("salary");
+        %>
+        <tr>
+            <td><%= name %></td>
+            <td><%= email %></td>
+            <td><%= position %></td>
+            <td><%= department %></td>
+            <td>$<%= salary %></td>
+        </tr>
+        <% 
+                }
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
+    </table>
+</body>
+</html>
+
+// register.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h2>Employee Registration Form</h2>
+    <form action="RegisterServlet" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>        
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" required><br>      
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required><br>       
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required><br>      
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
